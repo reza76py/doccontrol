@@ -25,6 +25,9 @@ local_settings.py
 venv/
 .venv/
 env/
+backend/Lib/
+backend/Scripts/
+backend/pyvenv.cfg
 
 # =========================
 # NODE / REACT
