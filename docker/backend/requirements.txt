@@ -3,3 +3,4 @@ djangorestframework
 mysqlclient
 gunicorn
 python-dotenv
+whitenoise
