@@ -1,7 +1,6 @@
 services:
   db:
     image: mysql:8.0
-    container_name: doccontrol-db
     environment:
       MYSQL_DATABASE: ${DB_NAME}
       MYSQL_USER: ${DB_USER}
@@ -15,20 +14,17 @@ services:
     build:
       context: .
       dockerfile: docker/backend/Dockerfile
-    container_name: doccontrol-backend
     env_file:
       - .env
     depends_on:
       - db
     ports:
-      - "127.0.0.1:${BACKEND_PUBLIC_PORT}:${BACKEND_PORT}"
+      - "${BACKEND_PUBLIC_PORT}:${BACKEND_PORT}"
     restart: always
 
   frontend:
     build:
       context: ./frontend
-      dockerfile: Dockerfile
-    container_name: doccontrol-frontend
     env_file:
       - .env
     ports:
